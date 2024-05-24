@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<style>
+    section {
+        margin: auto;
+        max-width: 600px;
+    }
+
+    .skillopen {
+        margin: auto;
+    }
+
+   .box{
+      display: flex;
+      flex-direction: row;
+      padding: 5px 0;
+   }
+
+   .box1, .box2, .box3{
+      border: 3px solid red;
+      width: 200px;
+   }
+
+   .skillcss{
+      min-width: 100px;
+      margin: 5px 10px;
+      width: 100px;
+      background-color: #b2fbff;
+      display: flex;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .skill_list_box{
+      position: fixed;
+      background: rgb(163 162 162);
+      z-index: 99;
+      width: 90%;
+      height: 500px;
+      left: 5%;
+      right: 5%;
+      top: 18%;
+      border-radius: 25px;
+      display: none;
+   }
+
+   .closebtn{
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      width: 50px;
+      height: 50px;
+   }
+
+   .skilllist{
+      margin: auto;
+      height: 400px;
+      overflow-y: scroll;
+   }
+
+   .formsize{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+   }
+   .formsize span{
+        padding-left: 10px;
+        width: 100%;
+   }
+
+.dropdown-content{
+    width: 100%;
+    text-align: center;
+}
+
+</style>
+
+
+
+<body>
+    <section>
+   <!-- skill list box 1 -->
+   <div>
+      <div class="box">
+         <div class="box1">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box2">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box3">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+      </div>
+   </div>
+
+   <!-- skill list box 2 -->
+   <div>
+      <div class="box">
+         <div class="box1">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box2">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box3">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+      </div>
+   </div>
+
+   <!-- skill list box 3 -->
+   <div>
+      <div class="box">
+         <div class="box1">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box2">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box3">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- skill list box 4 -->
+   <div>
+      <div class="box">
+         <div class="box1">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box2">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box3">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+      </div>
+   </div>
+
+   <!-- skill list box 5 -->
+   <div>
+      <div class="box">
+         <div class="box1">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box2">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+         <div class="box3">
+            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
+            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         </div>
+      </div>
+   </div>
+   </section>
+
+   <!-- skill list box -->
+   <div id="skill_list_box" class="skill_list_box">
+      <div style="text-align: center;">
+         <p>skill list</p>
+         <p>戰法順序:被動>陣法>兵種>指揮>主動>普攻>突擊</p>
+      </div>
+
+      <button onclick="closelist()" class="closebtn"><p>X</p></button>
+
+        <div class="skilllist" >
+            <div id="Command" class="formsize">
+               <span>指揮</span> 
+            </div>
+            <div id="Assault" class="formsize">
+               <span>突擊</span> 
+            </div>
+            <div id="Active" class="formsize">
+               <span>主動</span> 
+            </div>
+            <div id="Passive" class="formsize">
+               <span>被動</span> 
+            </div>
+            <div id="Array" class="formsize">
+                <span>陣法</span> 
+            </div>
+            <div id="Arms" class="formsize">
+               <span>兵種</span> 
+            </div>
+        </div>
+      
+   </div>
+   <!-- skill list box -->
+
+
+
+
+
+
+
+<style type="text/css">
+    .dropdown-content {
+  display: block;
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content option {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content option:hover {
+  background-color: #ddd;
+}
+
+</style>
+<script type="text/javascript">
+    
+</script>
+
+
+
+
+
+
+
+<script>
+        var general_list = [
+          {
+            "名稱": "CC",
+            "種類": "Arms"
+          },
+          {
+            "名稱": "SM",
+            "種類": "Arms"
+          },
+          {
+            "名稱": "MA",
+            "種類": "Arms"
+          },
+          {
+            "名稱": "bs",
+            "種類": "Assault"
+          }
+        ];
+
+
+
+        general_list.forEach(function(insertgeneral) {
+            // Find the generallist-content elements
+            var insectpostion = $('.generallist-content');
+
+            //Create a new option element
+            var generals = document.createElement('option');
+            generals.textContent = insertgeneral.名稱;
+            generals.classList.add('skillbox','skillcss', insertgeneral.種類);
+            
+            //Insert the option as a child
+            insectpostion.append(generals);
+        });
+
+
+        // Keep track of the selected generals
+        var selectedGenerals = [];
+        
+        // Function to handle selection of generals
+        $('.generallist-content').on('change', function() {
+            var selectedGeneral = $(this).val();
+            
+            // Add the selected general to the list of selected generals
+            if (selectedGeneral !== "") {
+                selectedGenerals.push(selectedGeneral);
+            }
+            
+            // Disable all the selected generals in the other dropdown lists
+            $('.generallist-content option').each(function() {
+                if (selectedGenerals.includes($(this).val())) {
+                    $(this).prop('disabled', true);
+                } else {
+                    $(this).prop('disabled', false);
+                }
+            });
+        });
+</script>
+
+<script>
+   var skill_list = [
+                {
+                    "名稱": "虎豹騎",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "西涼鐵騎",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "藤甲兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "陷陣營",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "無當飛軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "白馬義從",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "白耳兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "大戟士",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "錦釩軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "虎衛軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "象兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "青州兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "丹陽兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "飛熊軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "先登死士",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "解煩軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "鋒矢陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "形一陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "箕形陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "八門金鎖陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "三勢陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "武鋒陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "潛龍陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "自愈",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "魅惑",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "太平道法",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "絕地反擊",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "虎踞鷹揚",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "文武雙全",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "士別三日",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "兵無常勢",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "裸衣血戰",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "剛勇無前",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "白眉",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "千里走單騎",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "忠勇義烈",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "暫避其鋒",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "盛氣凜敵",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "用武通神",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "撫輯軍民",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "奇計良謀",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "鐵騎駆馳",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "非攻制勝",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "御敵屏障",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "整裝待發",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "臥薪嘗膽",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "橫掃千軍",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "破陣摧堅",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "所向披靡",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "破軍威勝",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "避實擊虛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "奪魂挾魄",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "杯蛇鬼車",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "四面楚歌",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "瞋目橫矛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "刮骨療毒",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "一力拒守",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "形機軍略",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "智計",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "風乘火勢",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "疾風驟雨",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "焰逐鳳飛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "威謀靡亢",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "草船借箭",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "據水斷橋",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "嬰城自守",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "擊其惰歸",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "獨行赴斗",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "焚輜營壘",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "火熾原燎",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "掣手制敵",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "縱兵劫掠",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "不辱使命",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "暴斂四方",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "落鳳",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "輕勇飛燕",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "坐守孤城",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "強攻",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "唇槍舌戰",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "魯莽",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "千里馳援",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "一騎當千",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "鬼神霆威",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "百騎劫營",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "暴戾無仁",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "折衝御侮",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "速乘其利",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "當鋒摧決",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "克敵制勝",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "先成其慮",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "勇者得前",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "彎弓飲羽",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "手起刀落",
+                    "種類": "Assault"
+                }
+            ];
+
+
+        skill_list.forEach(function(insertlist) {
+            // 找 skilllist 中的種類
+            var insectpostion = document.getElementById(insertlist.種類);
+
+            if (insectpostion) {
+                //加入不同元素
+                var skillbox = document.createElement('button');
+                skillbox.textContent = insertlist.名稱;
+                skillbox.classList.add('skillbox','skillcss','click');
+
+                //insert to be Child
+                insectpostion.appendChild(skillbox);
+            }
+        });
+
+
+
+      // 找出哪個是現在打開左既技能格和設置狀態
+      $('.skillopen').click(function(){
+         var aaa = $('.skill_list_box').css('display');
+
+         // 先把所有關閉,避免其他同時打開
+         $('.skillopen').attr('selectskill', 'close');
+
+         if (aaa === "block") {
+            $(this).attr('selectskill', 'nowopen');
+         } else if (aaa === "none") {
+            $(this).attr('selectskill', 'close');
+         }
+      });
+
+
+
+      // 選擇技能
+      $('.click').click(function(){
+
+         // 關閉被選擇技能的可選狀態
+         $(this).attr("disabled", true);
+
+         // 選擇具有 'selectskill="nowopen"' 屬性的狀態
+         var nowopen = $('.skillopen[selectskill="nowopen"]')
+         var nowopenparent = $('.skillopen[selectskill="nowopen"]').parent()
+
+         // 清除內容
+         nowopen.empty();
+
+         // 被選擇技能的名稱
+         var openskill =  $(this).text();
+
+         // 在狀態nowopen(前面prepend)加btn,(後面append)加名稱
+         nowopenparent.prepend('<button class="delskill">X</button>');
+         nowopen.append(openskill);
+
+         // 關閉現時所選技能格的狀態
+         $('.skillopen').attr('selectskill', 'close');
+
+         // 關閉 skill list
+         $('.skill_list_box').hide();
+      });
+
+
+
+      // Delete skill 
+      $(document).on('click','.delskill',function(){
+          
+         // 選擇當前元素
+         var currentElement = $(this);
+
+         // 獲取當前元素的下一个元素
+         var nextElement = currentElement.next();
+
+         // 獲取當前元素的下一个元素的名稱
+         var nextname = nextElement.text();
+
+         // 在技能池內找出相同名稱的技能並且重新打開可選狀態
+         $('.skillbox:contains("' + nextname + '")').each(function() {
+            $('.skillbox:contains("'+nextname+'")').attr("disabled", false);
+            console.log('找到了文本内容包含 "虎豹騎" 的元素:', $(this).text());
+         });
+
+         // 把當前元素的下一个元素名稱清空
+         $(nextElement).text('skill');
+
+         // 刪除 X btn
+         $(this).remove();
+      });
+
+
+
+      // open list
+      var skill_list_open = $('.skill_list_box');
+      function openlist(){
+         skill_list_open.toggle();
+         $(this).attr("disabled", true);
+      }
+
+      // close list
+      var skill_list_close = $('.skill_list_box');
+      function closelist(){
+         skill_list_open.hide();
+      }
+</script>
+
+
+</body>
+</html>
