@@ -96,7 +96,8 @@ section {
 }
 
 .skillcss{
-    font-size: 40px;
+    /*font-size: 40px;*/
+    font-size: 4vw;
 }
 
 .skillbox{
@@ -116,15 +117,16 @@ section {
 
 .skill_list_box{
     position: fixed;
-    background: rgb(163 162 162);
+    background: rgb(172 166 166);
     z-index: 99;
-    width: 90%;
+    width: 100%;
     height: 1070px;
-    left: 5%;
-    right: 5%;
-    top: 8%;
+    /* left: 5%; */
+    /* right: 5%; */
+    top: 0;
     border-radius: 25px;
     display: none;
+    margin: 150px 0;
 }
 
 .delskill{
@@ -1288,7 +1290,7 @@ section {
          // 在技能池內找出相同名稱的技能並且重新打開可選狀態
          $('.skillbox:contains("' + nextname + '")').each(function() {
             $('.skillbox:contains("'+nextname+'")').attr("disabled", false);
-            console.log('找到了文本内容包含 AA 的元素:', $(this).text());
+            console.log('找到了文本内容包含的元素:', $(this).text());
          });
 
          // 把當前元素的下一个元素名稱清空
