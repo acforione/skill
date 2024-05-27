@@ -4,80 +4,141 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <style>
-    section {
-        margin: auto;
-        max-width: 600px;
-    }
+section {
 
-    .skillopen {
-        margin: auto;
-    }
+}
 
-   .box{
-      display: flex;
-      flex-direction: row;
-      padding: 5px 0;
-   }
+.box{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+}
 
-   .box1, .box2, .box3{
-      border: 3px solid red;
-      width: 200px;
-   }
+.box1, .box2, .box3{
+    border: 3px solid red;
+    font-size: -webkit-xxx-large;
+    width: 100%;
+}
 
-   .skillcss{
-      min-width: 100px;
-      margin: 5px 10px;
-      width: 100px;
-      background-color: #b2fbff;
-      display: flex;
-      height: 30px;
-      align-items: center;
-      justify-content: center;
-   }
+.generalbox{
+    min-width: 100px;
+    margin: 5px 10px;
+    width: 100px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
 
-   .skill_list_box{
-      position: fixed;
-      background: rgb(163 162 162);
-      z-index: 99;
-      width: 90%;
-      height: 500px;
-      left: 5%;
-      right: 5%;
-      top: 18%;
-      border-radius: 25px;
-      display: none;
-   }
 
-   .closebtn{
-      position: absolute;
-      top: 0px;
-      right: 25px;
-      width: 50px;
-      height: 50px;
-   }
+.generallist-content {
+    font-size: 4vw;
+    width: 100%;
+}
 
-   .skilllist{
-      margin: auto;
-      height: 400px;
-      overflow-y: scroll;
-   }
-
-   .formsize{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-   }
-   .formsize span{
-        padding-left: 10px;
-        width: 100%;
-   }
+.generalcss{
+    font-size: 20px;
+}
 
 .dropdown-content{
     width: 100%;
     text-align: center;
 }
 
+.dropdown-content {
+    display: block;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content option:hover {
+    background-color: #ddd;
+}
+
+.wei{
+    background-color: #6e86a7;
+}
+.wu{
+    background-color: #a35e5f;
+}
+.shu{
+    background-color: #5f9e73;
+}
+.qun{
+    background-color: #aeaeb1;
+}
+
+
+
+.skillopen {
+    margin: auto;
+}
+
+.skillcss{
+    font-size: 40px;
+}
+
+.skillbox{
+    margin: 5px 10px;
+    width: 30%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.skilllist{
+    margin: auto;
+    height: 850px;
+    overflow-y: scroll;
+}
+
+.skill_list_box{
+    position: fixed;
+    background: rgb(163 162 162);
+    z-index: 99;
+    width: 90%;
+    height: 1000px;
+    left: 5%;
+    right: 5%;
+    top: 8%;
+    border-radius: 25px;
+    display: none;
+}
+
+.closebtn{
+    font-size: 30px;
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    width: 100px;
+}
+
+
+
+.formsize{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.formsize span{
+    padding: 10px 0 10px 10px;
+    width: 100%;
+    font-size: 40px;
+}
+
 </style>
+
 
 
 
@@ -87,17 +148,17 @@
    <div>
       <div class="box">
          <div class="box1">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box2">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box3">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
@@ -108,17 +169,17 @@
    <div>
       <div class="box">
          <div class="box1">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box2">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box3">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
@@ -129,17 +190,17 @@
    <div>
       <div class="box">
          <div class="box1">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box2">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box3">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
@@ -151,17 +212,17 @@
    <div>
       <div class="box">
          <div class="box1">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box2">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box3">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
@@ -172,17 +233,17 @@
    <div>
       <div class="box">
          <div class="box1">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box2">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
          <div class="box3">
-            <select id="generallist" class="generallist-content"><option value="">Select general</option></select>
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
             <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
          </div>
@@ -193,8 +254,8 @@
    <!-- skill list box -->
    <div id="skill_list_box" class="skill_list_box">
       <div style="text-align: center;">
-         <p>skill list</p>
-         <p>戰法順序:被動>陣法>兵種>指揮>主動>普攻>突擊</p>
+        <p style="font-size: 35px;">skill_list</p>
+        <p style="font-size: 35px;">戰法順序:被動&gt;陣法&gt;兵種&gt;指揮&gt;主動&gt;普攻&gt;突擊</p>
       </div>
 
       <button onclick="closelist()" class="closebtn"><p>X</p></button>
@@ -222,41 +283,6 @@
       
    </div>
    <!-- skill list box -->
-
-
-
-
-
-
-
-<style type="text/css">
-    .dropdown-content {
-  display: block;
-  position: relative;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content option {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content option:hover {
-  background-color: #ddd;
-}
-
-</style>
-<script type="text/javascript">
-    
-</script>
-
-
-
 
 
 
@@ -474,10 +500,6 @@
             "種類": "shu"
           },
           {
-            "名稱": "馬忠",
-            "種類": "shu"
-          },
-          {
             "名稱": "馬雲祿",
             "種類": "shu"
           },
@@ -563,6 +585,10 @@
           },
           {
             "名稱": "諸葛格",
+            "種類": "wu"
+          },
+          {
+            "名稱": "馬忠",
             "種類": "wu"
           },
           {
@@ -748,7 +774,7 @@
             //Create a new option element
             var generals = document.createElement('option');
             generals.textContent = insertgeneral.名稱;
-            generals.classList.add('skillbox','skillcss', insertgeneral.種類);
+            generals.classList.add('generalbox','generalcss', insertgeneral.種類);
             
             //Insert the option as a child
             insectpostion.append(generals);
