@@ -34,6 +34,7 @@ section {
 .generallist-content {
     font-size: 4vw;
     width: 100%;
+    text-align: center;
 }
 
 .generalcss{
@@ -78,6 +79,16 @@ section {
     background-color: #aeaeb1;
 }
 
+.generalclear{
+    width: 300px;
+    font-size: 30px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 
 .skillopen {
@@ -108,13 +119,20 @@ section {
     background: rgb(163 162 162);
     z-index: 99;
     width: 90%;
-    height: 1000px;
+    height: 1070px;
     left: 5%;
     right: 5%;
     top: 8%;
     border-radius: 25px;
     display: none;
 }
+
+.delskill{
+    width: 70px;
+    font-size: 3vw;
+}
+
+
 
 .closebtn{
     font-size: 30px;
@@ -145,6 +163,7 @@ section {
 <body>
     <section>
    <!-- skill list box 1 -->
+   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
    <div>
       <div class="box">
          <div class="box1">
@@ -166,6 +185,7 @@ section {
    </div>
 
    <!-- skill list box 2 -->
+   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
    <div>
       <div class="box">
          <div class="box1">
@@ -187,6 +207,7 @@ section {
    </div>
 
    <!-- skill list box 3 -->
+   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
    <div>
       <div class="box">
          <div class="box1">
@@ -209,6 +230,7 @@ section {
 
 
    <!-- skill list box 4 -->
+   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
    <div>
       <div class="box">
          <div class="box1">
@@ -230,6 +252,7 @@ section {
    </div>
 
    <!-- skill list box 5 -->
+   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
    <div>
       <div class="box">
          <div class="box1">
@@ -802,6 +825,13 @@ section {
                 }
             });
         });
+
+
+
+      // function generalclear(){
+      //    $('.generallist-content option').prop('disabled', false);
+      // }
+
 </script>
 
 <script>
@@ -1258,7 +1288,7 @@ section {
          // 在技能池內找出相同名稱的技能並且重新打開可選狀態
          $('.skillbox:contains("' + nextname + '")').each(function() {
             $('.skillbox:contains("'+nextname+'")').attr("disabled", false);
-            console.log('找到了文本内容包含 "虎豹騎" 的元素:', $(this).text());
+            console.log('找到了文本内容包含 AA 的元素:', $(this).text());
          });
 
          // 把當前元素的下一个元素名稱清空
