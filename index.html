@@ -4,316 +4,288 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
 <style>
-section {
+/*  circle box  */
+   .circlessidebox {
+      display: flex;
+      flex-direction: row;
+      padding: 5px 0;
+   }
 
-}
+   .circlesside {
+      border: 3px solid gray;
+      font-size: -webkit-xxx-large;
+      width: 100%;
+   }
 
-.box{
-    display: flex;
-    flex-direction: row;
-    padding: 5px 0;
-}
-
-.box1, .box2, .box3{
-    border: 3px solid red;
-    font-size: -webkit-xxx-large;
-    width: 100%;
-}
-
-.generalbox{
-    min-width: 100px;
-    margin: 5px 10px;
-    width: 100px;
-    display: flex;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-}
+   .circles {
+       margin: auto;
+   }
 
 
-.generallist-content {
-    font-size: 4vw;
-    width: 100%;
-    text-align: center;
-}
+/*  list_box  */
+   .skill_list_box, .role_list_box {
+      position: fixed;
+      background: rgb(172 166 166);
+      z-index: 99;
+      width: 100%;
+      height: 1070px;
+      /* left: 5%; */
+      /* right: 5%; */
+      top: 150px;
+      border-radius: 25px;
+      display: none;
+      margin: 150px 0;
+   }
 
-.generalcss{
-    font-size: 20px;
-}
+   .skilllist, .rolelist {
+       margin: auto;
+       height: 850px;
+       overflow-y: scroll;
+   }
 
-.dropdown-content{
-    width: 100%;
-    text-align: center;
-}
+   .listformat{
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
 
-.dropdown-content {
-    display: block;
-    position: relative;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
+   .listformat span{
+       padding: 10px 0 10px 10px;
+       width: 100%;
+       font-size: 40px;
+   }
 
-.dropdown-content option {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+   .closebtn {
+      font-size: 30px;
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      width: 100px;
+   }
 
-.dropdown-content option:hover {
-    background-color: #ddd;
-}
 
-.wei{
-    background-color: #6e86a7;
-}
-.wu{
-    background-color: #a35e5f;
-}
-.shu{
-    background-color: #5f9e73;
-}
-.qun{
-    background-color: #aeaeb1;
-}
+/*  select btn  */
+   .skillbtnbox, .rolebtnbox {
+       margin: 5px 10px;
+       width: 30%;
+       display: flex;
+       height: 60px;
+       align-items: center;
+       justify-content: center;
+   }
 
-.generalclear{
-    width: 300px;
-    font-size: 30px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+   .btnboxcss {
+       font-size: 4vw;
+   }
+
+   .delbtn{
+       width: 70px;
+       font-size: 3vw;
+   }
 
 
 
 
-.skillopen {
-    margin: auto;
-}
-
-.skillcss{
-    /*font-size: 40px;*/
-    font-size: 4vw;
-}
-
-.skillbox{
-    margin: 5px 10px;
-    width: 30%;
-    display: flex;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-}
-
-.skilllist{
-    margin: auto;
-    height: 850px;
-    overflow-y: scroll;
-}
-
-.skill_list_box{
-    position: fixed;
-    background: rgb(172 166 166);
-    z-index: 99;
-    width: 100%;
-    height: 1070px;
-    /* left: 5%; */
-    /* right: 5%; */
-    top: 0;
-    border-radius: 25px;
-    display: none;
-    margin: 150px 0;
-}
-
-.delskill{
-    width: 70px;
-    font-size: 3vw;
-}
 
 
 
-.closebtn{
-    font-size: 30px;
-    position: absolute;
-    top: 0px;
-    right: 25px;
-    width: 100px;
-}
 
 
 
-.formsize{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.formsize span{
-    padding: 10px 0 10px 10px;
-    width: 100%;
-    font-size: 40px;
-}
 
+
+
+
+
+/*  oneclickclear  */
+  .oneclickclear{
+      width: 300px;
+      font-size: 30px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 </style>
 
-
-
-
 <body>
-    <section>
+   <section>
    <!-- skill list box 1 -->
-   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
    <div>
-      <div class="box">
-         <div class="box1">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box2">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box3">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
       </div>
    </div>
-
    <!-- skill list box 2 -->
-   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
    <div>
-      <div class="box">
-         <div class="box1">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box2">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box3">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
       </div>
    </div>
-
    <!-- skill list box 3 -->
-   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
    <div>
-      <div class="box">
-         <div class="box1">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box2">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box3">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
       </div>
    </div>
-
-
    <!-- skill list box 4 -->
-   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
    <div>
-      <div class="box">
-         <div class="box1">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box2">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box3">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
       </div>
    </div>
-
    <!-- skill list box 5 -->
-   <button onclick="generalclear()" class="generalclear"><p>general-clear</p></button>
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
    <div>
-      <div class="box">
-         <div class="box1">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box2">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
-         <div class="box3">
-            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 1</div></div>
-            <div style="display: flex;"><div class="skillopen" onclick="openlist()">skill 2</div></div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
          </div>
       </div>
    </div>
-   </section>
 
+
+   <!-- role list box -->
+   <div id="role_list_box" class="role_list_box">
+      <div style="text-align: center;">
+         <p style="font-size: 35px;">role list</p>
+      </div>
+
+      <button onclick="closebox()" class="closebtn"><p>X</p></button>
+
+      <div class="rolelist" >
+         <div id="wei" class="listformat">
+            <span>wei</span> 
+         </div>
+         <div id="sha" class="listformat">
+            <span>sha</span> 
+         </div>
+         <div id="wu" class="listformat">
+            <span>wu</span> 
+         </div>
+         <div id="qun" class="listformat">
+            <span>qun</span> 
+         </div>
+      </div>
+   </div>
+   <!-- role list box -->
    <!-- skill list box -->
    <div id="skill_list_box" class="skill_list_box">
       <div style="text-align: center;">
-        <p style="font-size: 35px;">skill_list</p>
-        <p style="font-size: 35px;">戰法順序:被動&gt;陣法&gt;兵種&gt;指揮&gt;主動&gt;普攻&gt;突擊</p>
+         <p style="font-size: 35px;">skill_list</p>
+         <p style="font-size: 35px;">戰法順序:被動&gt;陣法&gt;兵種&gt;指揮&gt;主動&gt;普攻&gt;突擊</p>
       </div>
 
-      <button onclick="closelist()" class="closebtn"><p>X</p></button>
+      <button onclick="closebox()" class="closebtn"><p>X</p></button>
 
-        <div class="skilllist" >
-            <div id="Command" class="formsize">
-               <span>指揮</span> 
-            </div>
-            <div id="Assault" class="formsize">
-               <span>突擊</span> 
-            </div>
-            <div id="Active" class="formsize">
-               <span>主動</span> 
-            </div>
-            <div id="Passive" class="formsize">
-               <span>被動</span> 
-            </div>
-            <div id="Array" class="formsize">
-                <span>陣法</span> 
-            </div>
-            <div id="Arms" class="formsize">
-               <span>兵種</span> 
-            </div>
-        </div>
-      
+      <div class="skilllist" >
+         <div id="Command" class="listformat">
+            <span>指揮</span> 
+         </div>
+         <div id="Assault" class="listformat">
+            <span>突擊</span> 
+         </div>
+         <div id="Active" class="listformat">
+            <span>主動</span> 
+         </div>
+         <div id="Passive" class="listformat">
+            <span>被動</span> 
+         </div>
+         <div id="Array" class="listformat">
+            <span>陣法</span> 
+         </div>
+         <div id="Arms" class="listformat">
+            <span>兵種</span> 
+         </div>
+      </div>
    </div>
    <!-- skill list box -->
 
 
 
 
+
+
+
+
+
+
+   </section>
+
 <script>
-        var general_list = [
+        var role_list = [
           {
             "名稱": "曹操",
             "種類": "wei"
@@ -791,52 +763,6 @@ section {
         ];
 
 
-
-        general_list.forEach(function(insertgeneral) {
-            // Find the generallist-content elements
-            var insectpostion = $('.generallist-content');
-
-            //Create a new option element
-            var generals = document.createElement('option');
-            generals.textContent = insertgeneral.名稱;
-            generals.classList.add('generalbox','generalcss', insertgeneral.種類);
-            
-            //Insert the option as a child
-            insectpostion.append(generals);
-        });
-
-
-        // Keep track of the selected generals
-        var selectedGenerals = [];
-        
-        // Function to handle selection of generals
-        $('.generallist-content').on('change', function() {
-            var selectedGeneral = $(this).val();
-            
-            // Add the selected general to the list of selected generals
-            if (selectedGeneral !== "") {
-                selectedGenerals.push(selectedGeneral);
-            }
-            
-            // Disable all the selected generals in the other dropdown lists
-            $('.generallist-content option').each(function() {
-                if (selectedGenerals.includes($(this).val())) {
-                    $(this).prop('disabled', true);
-                } else {
-                    $(this).prop('disabled', false);
-                }
-            });
-        });
-
-
-
-      // function generalclear(){
-      //    $('.generallist-content option').prop('disabled', false);
-      // }
-
-</script>
-
-<script>
    var skill_list = [
                 {
                     "名稱": "虎豹騎",
@@ -1212,110 +1138,137 @@ section {
                 }
             ];
 
+   // 入 role list
+   role_list.forEach(function(insertlist) {
+      // 在rolelist中把種類設為ID,用作檢查
+      var insectposition = document.getElementById(insertlist.種類);
 
-        skill_list.forEach(function(insertlist) {
-            // 找 skilllist 中的種類
-            var insectpostion = document.getElementById(insertlist.種類);
+      // 把不同元素加入指定種類的位置
+      if (insectposition) {
+      // 加入元素
+      var rolebox = document.createElement('button');
+      rolebox.textContent = insertlist.名稱;
+      rolebox.classList.add('rolebtnbox','btnboxcss','click');
 
-            if (insectpostion) {
-                //加入不同元素
-                var skillbox = document.createElement('button');
-                skillbox.textContent = insertlist.名稱;
-                skillbox.classList.add('skillbox','skillcss','click');
-
-                //insert to be Child
-                insectpostion.appendChild(skillbox);
-            }
-        });
-
-
-
-      // 找出哪個是現在打開左既技能格和設置狀態
-      $('.skillopen').click(function(){
-         var aaa = $('.skill_list_box').css('display');
-
-         // 先把所有關閉,避免其他同時打開
-         $('.skillopen').attr('selectskill', 'close');
-
-         if (aaa === "block") {
-            $(this).attr('selectskill', 'nowopen');
-         } else if (aaa === "none") {
-            $(this).attr('selectskill', 'close');
-         }
-      });
-
-
-
-      // 選擇技能
-      $('.click').click(function(){
-
-         // 關閉被選擇技能的可選狀態
-         $(this).attr("disabled", true);
-
-         // 選擇具有 'selectskill="nowopen"' 屬性的狀態
-         var nowopen = $('.skillopen[selectskill="nowopen"]')
-         var nowopenparent = $('.skillopen[selectskill="nowopen"]').parent()
-
-         // 清除內容
-         nowopen.empty();
-
-         // 被選擇技能的名稱
-         var openskill =  $(this).text();
-
-         // 在狀態nowopen(前面prepend)加btn,(後面append)加名稱
-         nowopenparent.prepend('<button class="delskill">X</button>');
-         nowopen.append(openskill);
-
-         // 關閉現時所選技能格的狀態
-         $('.skillopen').attr('selectskill', 'close');
-
-         // 關閉 skill list
-         $('.skill_list_box').hide();
-      });
-
-
-
-      // Delete skill 
-      $(document).on('click','.delskill',function(){
-          
-         // 選擇當前元素
-         var currentElement = $(this);
-
-         // 獲取當前元素的下一个元素
-         var nextElement = currentElement.next();
-
-         // 獲取當前元素的下一个元素的名稱
-         var nextname = nextElement.text();
-
-         // 在技能池內找出相同名稱的技能並且重新打開可選狀態
-         $('.skillbox:contains("' + nextname + '")').each(function() {
-            $('.skillbox:contains("'+nextname+'")').attr("disabled", false);
-            console.log('找到了文本内容包含的元素:', $(this).text());
-         });
-
-         // 把當前元素的下一个元素名稱清空
-         $(nextElement).text('skill');
-
-         // 刪除 X btn
-         $(this).remove();
-      });
-
-
-
-      // open list
-      var skill_list_open = $('.skill_list_box');
-      function openlist(){
-         skill_list_open.toggle();
-         $(this).attr("disabled", true);
+      //insert to be Child
+      insectposition.appendChild(rolebox);
       }
+   });
 
-      // close list
-      var skill_list_close = $('.skill_list_box');
-      function closelist(){
-         skill_list_open.hide();
+   // 入 skill list
+   skill_list.forEach(function(insertlist) {
+      // 在skilllist中把種類設為ID,用作檢查
+      var insectposition = document.getElementById(insertlist.種類);
+
+      // 把不同元素加入指定種類的位置
+      if (insectposition) {
+      // 加入元素
+      var skillbox = document.createElement('button');
+      skillbox.textContent = insertlist.名稱;
+      skillbox.classList.add('skillbtnbox','btnboxcss','click');
+
+      //insert to be Child
+      insectposition.appendChild(skillbox);
       }
+   });
+
+
+   // 找出哪個是現在打開左既技能格和設置狀態
+   $('.circles').click(function(){
+
+      // 先把所有狀態關閉,避免其他同時打開
+      $('.circles').attr('list-status', 'close');
+      $(this).attr('list-status', 'open');
+
+      var circles_skill = $('.skill_list_box').css('display');
+      var circles_role = $('.role_list_box').css('display');
+
+      if (circles_role === "block" || circles_skill === "block" ) {
+         $(this).attr('list-status', 'open');
+      } else {
+         $(this).attr('list-status', 'close');
+      }
+   });
+
+
+   // 選擇技能
+   $('.click').click(function(){
+
+      $(this).attr("disabled", true);    // 關閉被選擇技能的可選狀態
+
+      // 選擇現時具有 'circles="select"' 屬性的狀態格
+      var position = $('.circles[list-status="open"]')    // 被選擇位置
+      var positionParent = position.parent()
+      var selectskill =  $(this).text();    // 被選擇技能的名稱
+      
+      position.empty(); // 清除內容
+      if (position.attr('status_select') === 'close') {
+          positionParent.prepend('<button class="delbtn">X</button>');  // 在position and selectskill (前面prepend)加btn
+      } else if (!position.attr('status_select')){
+          positionParent.prepend('<button class="delbtn">X</button>');  // 在position and selectskill (前面prepend)加btn
+      } else {
+          // 在對應的技能池內找出相同名稱的技能並且重新打開可選狀態
+          var positionaa = $('.circles[list-status="open"]').attr('status_select');
+          $('.skillbtnbox:contains("' + positionaa + '"), .rolebtnbox:contains("' + positionaa + '")').each(function() {
+             $(this).attr("disabled", false);
+          });
+      }
+      position.append(selectskill);   // 在position and selectskill (後面append)加名稱
+      position.attr('status_select', selectskill);   // 設定已經被選擇過的狀態
+      
+      // 關閉 skill list
+      $('.skill_list_box').hide();
+      $('.role_list_box').hide();
+   });
+
+
+   // 刪除技能
+   $(document).on('click','.delbtn',function(){
+       
+      // 選擇當前元素
+      var currentElement = $(this);
+
+      // 獲取當前元素的下一个元素
+      var nextElement = currentElement.next();
+
+      // 獲取當前元素的下一个元素的名稱
+      var nextname = nextElement.text();
+
+      // 在對應的技能池內找出相同名稱的技能並且重新打開可選狀態
+      $('.skillbtnbox:contains("' + nextname + '"), .rolebtnbox:contains("' + nextname + '")').each(function() {
+         $(this).attr("disabled", false);
+         console.log('找到了文本内容包含的元素:', $(this).text());
+      });
+
+      // 把當前元素的下一个元素名稱清空
+      $(nextElement).text('re-select');
+
+      // 回復為沒有被選擇過的狀態
+      nextElement.attr('status_select', 'close');
+
+      // 刪除 X btn
+      $(this).remove();
+   });
+
+
+
+   function openbox(boxType) {
+      if (boxType === 'role') {
+         $('#role_list_box').show();
+         $('#skill_list_box').hide();
+      } else if (boxType === 'skill') {
+         $('#skill_list_box').show();
+         $('#role_list_box').hide();
+      }
+   }
+
+   function closebox() {
+      $('.circles').attr('list-status', 'close');
+      $('#skill_list_box').hide();
+      $('#role_list_box').hide();
+   }
+
+
 </script>
-
-
 </body>
 </html>
