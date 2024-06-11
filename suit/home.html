@@ -1,38 +1,1328 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 <style>
-    body {
-        background-color: #5f4d4d4d;
-    }
+/*  circle box  */
+   .circlessidebox {
+      display: flex;
+      flex-direction: row;
+      padding: 5px 0;
+   }
 
-    .home{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+   .circlesside {
+      border: 3px solid gray;
+      font-size: -webkit-xxx-large;
+      width: 100%;
+   }
 
-    .homebtn {
-        width: 90%;
-        height: 100px;
-        color: white;
-        background: #23b5f6;
-        border: 1px #2c8797 solid;
-        border-radius: 10px;
-        font-size: 50px;
-        margin: 20px;
+   .circles {
+       margin: auto;
+   }
 
-    }
 
-    .homebtn a{
-        text-decoration: none;
-        color: white;
-    }
+/*  list_box  */
+   .skill_list_box, .role_list_box {
+      position: fixed;
+      background: rgb(172 166 166);
+      z-index: 99;
+      width: 100%;
+      height: 1070px;
+      /* left: 5%; */
+      /* right: 5%; */
+      top: 150px;
+      border-radius: 25px;
+      display: none;
+      margin: 150px 0;
+   }
+
+   .skilllist, .rolelist {
+       margin: auto;
+       height: 850px;
+       overflow-y: scroll;
+   }
+
+   .listformat{
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+
+   .listformat span{
+       padding: 10px 0 10px 10px;
+       width: 100%;
+       font-size: 40px;
+   }
+
+   .closebtn {
+      font-size: 30px;
+      position: absolute;
+      top: 0px;
+      right: 25px;
+      width: 100px;
+   }
+
+
+/*  select btn  */
+   .skillbtnbox, .rolebtnbox {
+       margin: 5px 10px;
+       width: 30%;
+       display: flex;
+       height: 60px;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .btnboxcss {
+       font-size: 4vw;
+   }
+
+   .delbtn{
+       width: 70px;
+       font-size: 3vw;
+   }
+
+
+
+
+.wei{
+    background-color: #366ebc;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.wu{
+    background-color: #ce2c2f;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.shu{
+    background-color: #29ad3f;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.qun{
+    background-color: #c57446;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+
+
+.wei:disabled {
+    background-color: #1318ca;
+    color: #ffffff00;
+}
+.wu:disabled {
+    background-color: #ff0000;
+    color: #ffffff00;
+}
+.shu:disabled {
+    background-color: #00ff2b;
+    color: #ffffff00;
+}
+.qun:disabled {
+    background-color: #ea5c0b;
+    color: #ffffff00;
+}
+
+
+
+
+
+
+
+
+/*  oneclickclear  */
+  .oneclickclear{
+      width: 300px;
+      font-size: 30px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 </style>
 
-<section id="home">
-    <div class="home" style="margin-top: 10rem;">
-        <button class="homebtn"><a href="https://acforione.github.io/skill/suit/index.html">主頁</a></button>
-        <button class="homebtn"><a href="https://acforione.github.io/skill/suit/step1.html">步驟1</a></button>
-        <button class="homebtn"><a href="https://acforione.github.io/skill/suit/step2.html">步驟2</a></button>
-        <button class="homebtn"><a href="https://acforione.github.io/skill/suit/step3.html">步驟3</a></button>
-        <button class="homebtn"><a href="https://acforione.github.io/skill/suit/test.html">測試頁</a></button>
-    </div>
-</section>
+<body>
+   <section>
+   <!-- skill list box 1 -->
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+      </div>
+   </div>
+   <!-- skill list box 2 -->
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+      </div>
+   </div>
+   <!-- skill list box 3 -->
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+      </div>
+   </div>
+   <!-- skill list box 4 -->
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+      </div>
+   </div>
+   <!-- skill list box 5 -->
+   <button onclick="generalclear()" class="oneclickclear"><p>oneclickclear</p></button>
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+         <div class="circlesside">
+            <div style="display: flex;"><div class="circles" onclick="openbox('role')" >role</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 2</div></div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- role list box -->
+   <div id="role_list_box" class="role_list_box">
+      <div style="text-align: center;">
+         <p style="font-size: 35px;">role list</p>
+      </div>
+
+      <button onclick="closebox()" class="closebtn"><p>X</p></button>
+
+      <div class="rolelist" >
+         <div id="wei" class="listformat">
+            <span>wei</span> 
+         </div>
+         <div id="shu" class="listformat">
+            <span>shu</span> 
+         </div>
+         <div id="wu" class="listformat">
+            <span>wu</span> 
+         </div>
+         <div id="qun" class="listformat">
+            <span>qun</span> 
+         </div>
+      </div>
+   </div>
+   <!-- role list box -->
+   <!-- skill list box -->
+   <div id="skill_list_box" class="skill_list_box">
+      <div style="text-align: center;">
+         <p style="font-size: 35px;">skill_list</p>
+         <p style="font-size: 35px;">戰法順序:被動&gt;陣法&gt;兵種&gt;指揮&gt;主動&gt;普攻&gt;突擊</p>
+      </div>
+
+      <button onclick="closebox()" class="closebtn"><p>X</p></button>
+
+      <div class="skilllist" >
+         <div id="Command" class="listformat">
+            <span>指揮</span> 
+         </div>
+         <div id="Assault" class="listformat">
+            <span>突擊</span> 
+         </div>
+         <div id="Active" class="listformat">
+            <span>主動</span> 
+         </div>
+         <div id="Passive" class="listformat">
+            <span>被動</span> 
+         </div>
+         <div id="Array" class="listformat">
+            <span>陣法</span> 
+         </div>
+         <div id="Arms" class="listformat">
+            <span>兵種</span> 
+         </div>
+      </div>
+   </div>
+   <!-- skill list box -->
+
+
+
+
+
+
+
+
+
+
+   </section>
+
+<script>
+        var role_list = [
+          {
+            "名稱": "曹操",
+            "種類": "wei"
+          },
+          {
+            "名稱": "典韋",
+            "種類": "wei"
+          },
+          {
+            "名稱": "許褚",
+            "種類": "wei"
+          },
+          {
+            "名稱": "司馬懿",
+            "種類": "wei"
+          },
+          {
+            "名稱": "郝昭",
+            "種類": "wei"
+          },
+          {
+            "名稱": "滿寵",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張遼",
+            "種類": "wei"
+          },
+          {
+            "名稱": "徐晃",
+            "種類": "wei"
+          },
+          {
+            "名稱": "于禁",
+            "種類": "wei"
+          },
+          {
+            "名稱": "樂進",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張郃",
+            "種類": "wei"
+          },
+          {
+            "名稱": "賈詡",
+            "種類": "wei"
+          },
+          {
+            "名稱": "程昱",
+            "種類": "wei"
+          },
+          {
+            "名稱": "荀攸",
+            "種類": "wei"
+          },
+          {
+            "名稱": "郭嘉",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹仁",
+            "種類": "wei"
+          },
+          {
+            "名稱": "夏侯惇",
+            "種類": "wei"
+          },
+          {
+            "名稱": "夏侯淵",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張春華",
+            "種類": "wei"
+          },
+          {
+            "名稱": "王元姬",
+            "種類": "wei"
+          },
+          {
+            "名稱": "鍾會",
+            "種類": "wei"
+          },
+          {
+            "名稱": "龐德",
+            "種類": "wei"
+          },
+          {
+            "名稱": "鄧艾",
+            "種類": "wei"
+          },
+          {
+            "名稱": "王雙",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹純",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP劉曄",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP郭嘉",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP荀彧",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP龐德",
+            "種類": "wei"
+          },
+          {
+            "名稱": "陳群",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹植",
+            "種類": "wei"
+          },
+          {
+            "名稱": "荀彧",
+            "種類": "wei"
+          },
+          {
+            "名稱": "甄姬",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹丕",
+            "種類": "wei"
+          },
+          {
+            "名稱": "劉備",
+            "種類": "shu"
+          },
+          {
+            "名稱": "關羽",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張飛",
+            "種類": "shu"
+          },
+          {
+            "名稱": "趙雲",
+            "種類": "shu"
+          },
+          {
+            "名稱": "黃忠",
+            "種類": "shu"
+          },
+          {
+            "名稱": "馬超",
+            "種類": "shu"
+          },
+          {
+            "名稱": "諸葛亮",
+            "種類": "shu"
+          },
+          {
+            "名稱": "龐統",
+            "種類": "shu"
+          },
+          {
+            "名稱": "法正",
+            "種類": "shu"
+          },
+          {
+            "名稱": "徐庶",
+            "種類": "shu"
+          },
+          {
+            "名稱": "姜維",
+            "種類": "shu"
+          },
+          {
+            "名稱": "魏延",
+            "種類": "shu"
+          },
+          {
+            "名稱": "關興",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張苞",
+            "種類": "shu"
+          },
+          {
+            "名稱": "關銀屏",
+            "種類": "shu"
+          },
+          {
+            "名稱": "黃月英",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張姬",
+            "種類": "shu"
+          },
+          {
+            "名稱": "馬雲祿",
+            "種類": "shu"
+          },
+          {
+            "名稱": "嚴顏",
+            "種類": "shu"
+          },
+          {
+            "名稱": "伊籍",
+            "種類": "shu"
+          },
+          {
+            "名稱": "陳到",
+            "種類": "shu"
+          },
+          {
+            "名稱": "王平",
+            "種類": "shu"
+          },
+          {
+            "名稱": "SP諸葛亮",
+            "種類": "shu"
+          },
+
+          {
+            "名稱": "SP關羽",
+            "種類": "shu"
+          },
+          {
+            "名稱": "蔣琬",
+            "種類": "shu"
+          },
+          {
+            "名稱": "孫權",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫策",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫尚香",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫堅",
+            "種類": "wu"
+          },
+          {
+            "名稱": "周瑜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "魯肅",
+            "種類": "wu"
+          },
+          {
+            "名稱": "呂蒙",
+            "種類": "wu"
+          },
+          {
+            "名稱": "陸遜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "甘寧",
+            "種類": "wu"
+          },
+          {
+            "名稱": "太史慈",
+            "種類": "wu"
+          },
+          {
+            "名稱": "周泰",
+            "種類": "wu"
+          },
+          {
+            "名稱": "凌統",
+            "種類": "wu"
+          },
+          {
+            "名稱": "黃蓋",
+            "種類": "wu"
+          },
+          {
+            "名稱": "程普",
+            "種類": "wu"
+          },
+          {
+            "名稱": "陸抗",
+            "種類": "wu"
+          },
+          {
+            "名稱": "諸葛格",
+            "種類": "wu"
+          },
+          {
+            "名稱": "馬忠",
+            "種類": "wu"
+          },
+          {
+            "名稱": "SP周瑜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "SP呂蒙",
+            "種類": "wu"
+          },
+          {
+            "名稱": "張昭",
+            "種類": "wu"
+          },
+          {
+            "名稱": "張紘",
+            "種類": "wu"
+          },
+          {
+            "名稱": "大喬",
+            "種類": "wu"
+          },
+          {
+            "名稱": "小喬",
+            "種類": "wu"
+          },
+          {
+            "名稱": "董卓",
+            "種類": "qun"
+          },
+          {
+            "名稱": "華雄",
+            "種類": "qun"
+          },
+          {
+            "名稱": "李儒",
+            "種類": "qun"
+          },
+          {
+            "名稱": "呂布",
+            "種類": "qun"
+          },
+          {
+            "名稱": "陳宮",
+            "種類": "qun"
+          },
+          {
+            "名稱": "高順",
+            "種類": "qun"
+          },
+          {
+            "名稱": "袁紹",
+            "種類": "qun"
+          },
+          {
+            "名稱": "許攸",
+            "種類": "qun"
+          },
+          {
+            "名稱": "沮授",
+            "種類": "qun"
+          },
+          {
+            "名稱": "田豐",
+            "種類": "qun"
+          },
+          {
+            "名稱": "顏良",
+            "種類": "qun"
+          },
+          {
+            "名稱": "文醜",
+            "種類": "qun"
+          },
+          {
+            "名稱": "高覽",
+            "種類": "qun"
+          },
+          {
+            "名稱": "麴義",
+            "種類": "qun"
+          },
+          {
+            "名稱": "袁術",
+            "種類": "qun"
+          },
+          {
+            "名稱": "張角",
+            "種類": "qun"
+          },
+          {
+            "名稱": "于吉",
+            "種類": "qun"
+          },
+          {
+            "名稱": "左慈",
+            "種類": "qun"
+          },
+          {
+            "名稱": "華佗",
+            "種類": "qun"
+          },
+          {
+            "名稱": "孟獲",
+            "種類": "qun"
+          },
+          {
+            "名稱": "祝融夫人",
+            "種類": "qun"
+          },
+          {
+            "名稱": "兀突骨",
+            "種類": "qun"
+          },
+          {
+            "名稱": "木鹿大王",
+            "種類": "qun"
+          },
+          {
+            "名稱": "朵思大王",
+            "種類": "qun"
+          },
+          {
+            "名稱": "公孫瓚",
+            "種類": "qun"
+          },
+          {
+            "名稱": "馬騰",
+            "種類": "qun"
+          },
+          {
+            "名稱": "張讓",
+            "種類": "qun"
+          },
+          {
+            "名稱": "蔡文姬",
+            "種類": "qun"
+          },
+          {
+            "名稱": "貂蟬",
+            "種類": "qun"
+          },
+          {
+            "名稱": "呂玲綺",
+            "種類": "qun"
+          },
+          {
+            "名稱": "董白",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP袁紹",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP朱儁",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP張梁",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP張寶",
+            "種類": "qun"
+          },
+          {
+            "名稱": "司馬徽",
+            "種類": "qun"
+          },
+          {
+            "名稱": "蔡邕",
+            "種類": "qun"
+          }
+        ];
+
+
+   var skill_list = [
+                {
+                    "名稱": "虎豹騎",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "西涼鐵騎",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "象兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "飛熊軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "藤甲兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "陷陣營",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "虎衛軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "丹陽兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "無當飛軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "錦釩軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "白馬義從",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "先登死士",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "青州兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "解煩軍",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "白耳兵",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "大戟士",
+                    "種類": "Arms"
+                },
+                {
+                    "名稱": "鋒矢陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "八門金鎖陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "箕形陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "三勢陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "武鋒陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "形一陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "潛龍陣",
+                    "種類": "Array"
+                },
+                {
+                    "名稱": "太平道法",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "士別三日",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "裸衣血戰",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "虎踞鷹揚",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "剛勇無前",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "絕地反擊",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "千里走單騎",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "忠勇義烈",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "兵無常勢",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "文武雙全",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "士爭先赴",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "魅惑",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "白眉",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "自愈",
+                    "種類": "Passive"
+                },
+                {
+                    "名稱": "暫避其鋒",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "撫輯軍民",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "奇計良謀",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "御敵屏障",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "盛氣凜敵",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "用武通神",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "鐵騎駆馳",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "非攻制勝",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "整裝待發",
+                    "種類": "Command"
+                },
+                {
+                    "名稱": "奪魂挾魄",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "杯蛇鬼車",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "草船借箭",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "刮骨療毒",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "竭力佐謀",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "嬰城自守",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "破軍威勝",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "橫掃千軍",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "破陣摧堅",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "所向披靡",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "臥薪嘗膽",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "威謀靡亢",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "疾風驟雨",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "掣手制敵",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "據水斷橋",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "臨機制勝",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "焰逐鳳飛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "偽書相間",
+                    "種類": "Active"
+                },  
+                {
+                    "名稱": "四面楚歌",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "焚輜營壘",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "火熾原燎",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "風乘火勢",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "智計",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "一力拒守",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "形機軍略",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "擊其惰歸",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "獨行赴斗",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "瞋目橫矛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "避實擊虛",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "縱兵劫掠",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "不辱使命",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "暴斂四方",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "落鳳",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "輕勇飛燕",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "坐守孤城",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "強攻",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "唇槍舌戰",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "魯莽",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "千里馳援",
+                    "種類": "Active"
+                },
+                {
+                    "名稱": "一騎當千",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "鬼神霆威",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "百騎劫營",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "暴戾無仁",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "折衝御侮",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "速乘其利",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "當鋒摧決",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "克敵制勝",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "先成其慮",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "勇者得前",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "彎弓飲羽",
+                    "種類": "Assault"
+                },
+                {
+                    "名稱": "手起刀落",
+                    "種類": "Assault"
+                }
+            ];
+
+   // 入 role list
+   role_list.forEach(function(insertlist) {
+      // 在rolelist中把種類設為ID,用作檢查
+      var insectposition = document.getElementById(insertlist.種類);
+
+      // 把不同元素加入指定種類的位置
+      if (insectposition) {
+      // 加入元素
+      var rolebox = document.createElement('button');
+      rolebox.textContent = insertlist.名稱;
+      rolebox.classList.add('rolebtnbox','btnboxcss','click',insertlist.種類);
+
+      //insert to be Child
+      insectposition.appendChild(rolebox);
+      }
+   });
+
+   // 入 skill list
+   skill_list.forEach(function(insertlist) {
+      // 在skilllist中把種類設為ID,用作檢查
+      var insectposition = document.getElementById(insertlist.種類);
+
+      // 把不同元素加入指定種類的位置
+      if (insectposition) {
+      // 加入元素
+      var skillbox = document.createElement('button');
+      skillbox.textContent = insertlist.名稱;
+      skillbox.classList.add('skillbtnbox','btnboxcss','click');
+
+      //insert to be Child
+      insectposition.appendChild(skillbox);
+      }
+   });
+
+
+   // 找出哪個是現在打開左既技能格和設置狀態
+   $('.circles').click(function(){
+
+      // 先把所有狀態關閉,避免其他同時打開
+      $('.circles').attr('list-status', 'close');
+      $(this).attr('list-status', 'open');
+
+      var circles_skill = $('.skill_list_box').css('display');
+      var circles_role = $('.role_list_box').css('display');
+
+      if (circles_role === "block" || circles_skill === "block" ) {
+         $(this).attr('list-status', 'open');
+      } else {
+         $(this).attr('list-status', 'close');
+      }
+   });
+
+
+   // 選擇技能
+   $('.click').click(function(){
+
+      $(this).attr("disabled", true);    // 關閉被選擇技能的可選狀態
+
+      // 選擇現時具有 'circles="select"' 屬性的狀態格
+      var position = $('.circles[list-status="open"]')    // 被選擇位置
+      var positionParent = position.parent()
+      var selectskill =  $(this).text();    // 被選擇技能的名稱
+      
+      position.empty(); // 清除內容
+      if (position.attr('status_select') === 'close') {
+          positionParent.prepend('<button class="delbtn">X</button>');  // 在position and selectskill (前面prepend)加btn
+      } else if (!position.attr('status_select')){
+          positionParent.prepend('<button class="delbtn">X</button>');  // 在position and selectskill (前面prepend)加btn
+      } else {
+          // 在對應的技能池內找出相同名稱的技能並且重新打開可選狀態
+          var positionaa = $('.circles[list-status="open"]').attr('status_select');
+          $('.skillbtnbox:contains("' + positionaa + '"), .rolebtnbox:contains("' + positionaa + '")').each(function() {
+             $(this).attr("disabled", false);
+          });
+      }
+      position.append(selectskill);   // 在position and selectskill (後面append)加名稱
+      position.attr('status_select', selectskill);   // 設定已經被選擇過的狀態
+      
+      // 關閉 skill list
+      $('.skill_list_box').hide();
+      $('.role_list_box').hide();
+   });
+
+
+   // 刪除技能
+   $(document).on('click','.delbtn',function(){
+       
+      // 選擇當前元素
+      var currentElement = $(this);
+
+      // 獲取當前元素的下一个元素
+      var nextElement = currentElement.next();
+
+      // 獲取當前元素的下一个元素的名稱
+      var nextname = nextElement.text();
+
+      // 在對應的技能池內找出相同名稱的技能並且重新打開可選狀態
+      $('.skillbtnbox:contains("' + nextname + '"), .rolebtnbox:contains("' + nextname + '")').each(function() {
+         $(this).attr("disabled", false);
+         console.log('找到了文本内容包含的元素:', $(this).text());
+      });
+
+      // 把當前元素的下一个元素名稱清空
+      $(nextElement).text('re-select');
+
+      // 回復為沒有被選擇過的狀態
+      nextElement.attr('status_select', 'close');
+
+      // 刪除 X btn
+      $(this).remove();
+   });
+
+
+
+   function openbox(boxType) {
+      if (boxType === 'role') {
+         $('#role_list_box').show();
+         $('#skill_list_box').hide();
+      } else if (boxType === 'skill') {
+         $('#skill_list_box').show();
+         $('#role_list_box').hide();
+      }
+   }
+
+   function closebox() {
+      $('.circles').attr('list-status', 'close');
+      $('#skill_list_box').hide();
+      $('#role_list_box').hide();
+   }
+
+
+</script>
+</body>
+</html>
