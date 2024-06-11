@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>读取excel文件解析内容</title>
+    <script src="https://cdn.bootcss.com/xlsx/0.11.5/xlsx.core.min.js"></script>
+    <style>
+      .warp {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+      }
+      span {
+        display: block;
+      }
+      textarea {
+        width: 80%;
+        display: block;
+      }
+      .file {
+        margin-bottom: 15px;
+      }
+      .tip {
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center;"><p ><h1>step 2 data change</h1></p></div>
+    <h3 class="tip">目前只能解析简单的纵向列表数据，支持多个工作表</h3>
+    <div class="file">
+      <input type="file" accept=".xls,.xlsx" onchange="uploadFile(this)" id="myFile" />
+    </div>
+    <div class="warp">
+      <span>内容展示：</span>
+      <textarea id="content" rows="30"></textarea>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    /**
+     *FileReader读取方法：readAsBinaryString(file)：开始读取指定的Blob中的内容。一旦完成，result属性中将包含所读取文件的原始二进制数据。
+     *@return {void} 无
+     **/
+
+    /** @name 读取完成的数据 */
+    var jsonContent;
+
+    /**
+     * 文件上传操作
+     * @param {Element} obj 选择的文件元素
+     * @return {void} 无
+     */
+    function uploadFile(obj) {
+      //导入
+      if (!obj.files) {
+        return;
+      }
+      let f = obj.files[0];
+      readExcelFile(obj, f);
+    }
+
+    /**
+     * Excel文件处理方法
+     * @param {Element} obj 选择的文件元素
+     * @param {File} f 文件对象
+     * @return {void} 无
+     */
+    function readExcelFile(obj, f) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var data = e.target.result;
+        jsonContent = XLSX.read(data, {
+          type: 'binary',
+        });
+        /** @name 工作簿中工作表的有序列表 */
+        const sheetNamesList = jsonContent.SheetNames;
+        const sheetsList = [];
+        sheetNamesList.map(sheetItem => {
+          //jsonContent.Sheets[Sheet名]获取该Sheet的数据
+          const sheetItemData = jsonContent.Sheets[sheetItem];
+          sheetsList.push({
+            sheetName: sheetItem,
+            list: XLSX.utils.sheet_to_json(sheetItemData), // 数据转成json格式
+          });
+        });
+        pageShow(sheetsList, f);
+      };
+      reader.readAsBinaryString(f);
+    }
+
+    /**
+     * 重组key-value
+     * @param {Array} list 需要操作的数组
+     * @param {Object} renameObj 重命名变量对象
+     * @return {Array} 合并成的新数组
+     */
+    function resetTableData(list, renameObj) {
+      let newList = [].concat(list);
+      newList.map(item => {
+        for (let k in item) {
+          const renameKey = renameObj[k];
+          item[renameKey] = item[k];
+          delete item[k];
+        }
+      });
+      return newList; // 最终输出
+    }
+
+    /**
+     * 数据回显
+     * @param {Array} list 数据数组对象
+     * @param {File} f 文件对象
+     * @return {void} 无
+     */
+    function pageShow(list, f) {
+      let jsonData = '';
+      /** @name 列表展示的变量名枚举 */
+      const renameObj = {
+        id: 'id',
+        name: '名稱',
+        category: '種類',
+      };
+      let newList = [].concat(list);
+      newList.map(item => {
+        item.list = resetTableData(item.list, renameObj);
+      });
+      /** @name 最终的数据 */
+      let arrayData = {
+        fileName: f.name,
+        list: [].concat(newList),
+      };
+      const content = document.getElementById('content');
+      jsonData = JSON.stringify(arrayData, null, 4);
+      content.innerHTML = jsonData;
+    }
+  </script>
+</html>
+
+作者：叶一一
+链接：https://juejin.cn/post/7033304702523539469
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

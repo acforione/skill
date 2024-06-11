@@ -1,0 +1,398 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<style>
+.generalbox, .btnbox{
+    position: fixed;
+    background: rgb(163 162 162);
+    z-index: 99;
+    width: 90%;
+    height: 500px;
+    left: 5%;
+    right: 5%;
+    top: 18%;
+    border-radius: 25px;
+    display: none;
+}
+
+.generalbtn, .skillbtn {
+    margin: auto;
+    height: 400px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.general_btn, .skill_btn{
+    min-width: 100px;
+    margin: 5px 10px;
+    width: 100px;
+    background-color: #b2fbff;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.generalbtn > div, .skillbtn > div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.threebtn {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    text-align: center;
+}
+
+.unstarted{
+    display: none;
+}
+</style>
+
+<style>
+section{
+    margin: 20px 0;
+}
+.section-1{
+    text-align: center;
+}
+.general_menu, .skill_menu{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background: #23b5f6;
+    border: 1px #2c8797 solid;
+    border-radius: 10px;
+}
+.generaltitle, .skilltitle{
+    text-align: center;
+}
+.closebtn{
+    position: absolute;
+    top: 0px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+
+</style>
+
+<section id="section-1">
+    <div style="text-align: center;"><p ><h1>step 1 data insert</h1></p></div>
+    <div class="section-1" >
+        <button class="general_menu" onclick="general_toggle()">General</button>
+        <button class="skill_menu" onclick="skill_toggle()">Skill</button>
+    </div>
+</section>
+
+<section id="section-2">    
+    <div>
+        <table id="inSertlist">
+            <tr>
+                <th class="delrow"></th>
+                <th>id</th>
+                <th>name</th>
+                <th>category</th>
+            </tr>
+        </table>
+    </div> 
+</section>
+
+
+<!-- general_menu box -->
+    <div id="generalbox" class="generalbox">
+        <div class="generaltitle"><p>General list</p></div><button onclick="listClose()" class="closebtn"><p>X</p></button>
+        <ul id="generalbtn" class="generalbtn">
+            <div>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>
+                <button class="general_btn" general-name="Active111" general-id="0">abc</button>           
+            </div>
+        </ul>
+    </div>
+<!-- general_menu box -->
+<!-- skill list box -->
+    <div id="btnbox" class="btnbox">
+        <div class="skilltitle">
+            <p>skill list</p>
+            <p>戰法順序:被動>陣法>兵種>指揮>主動>普攻>突擊</p>
+        </div>
+
+        <button onclick="listClose()" class="closebtn"><p>X</p></button>
+
+        <ul id="skillbtn" class="skillbtn">
+
+            <div>
+                <span style="width: 100%;">兵種</span>
+                <button class="skill_btn" skill-name="Arms" skill-id="1">虎豹騎</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="2">西涼鐵騎</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="3">藤甲兵</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="4">陷陣營</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="5">無當飛軍</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="6">白馬義從</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="7">白耳兵</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="8">大戟士</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="9">錦釩軍</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="10">虎衛軍</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="11">象兵</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="12">青州兵</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="13">丹陽兵</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="14">飛熊軍</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="15">先登死士</button>
+                <button class="skill_btn" skill-name="Arms" skill-id="16">解煩軍</button>
+            </div>
+
+            <div>
+                <span style="width: 100%;">陣法</span>
+                <button class="skill_btn" skill-name="Array" skill-id="17">鋒矢陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="18">形一陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="19">箕形陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="20">八門金鎖陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="21">三勢陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="22">武鋒陣</button>
+                <button class="skill_btn" skill-name="Array" skill-id="23">潛龍陣</button>
+            </div>
+
+            <div>
+                <span style="width: 100%;">被動</span>
+                <button class="skill_btn" skill-name="Passive" skill-id="24">自愈</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="25">魅惑</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="26">太平道法</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="27">絕地反擊</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="28">虎踞鷹揚</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="29">文武雙全</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="30">士別三日</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="31">兵無常勢</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="32">裸衣血戰</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="33">剛勇無前</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="34">白眉</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="35">千里走單騎</button>
+                <button class="skill_btn" skill-name="Passive" skill-id="36">忠勇義烈</button>
+                <button class="skill_btn unstarted" skill-name="Passive" skill-id="37" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Passive" skill-id="38" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Passive" skill-id="39" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Passive" skill-id="40" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Passive" skill-id="41" disabled>XXX</button>
+            </div>
+
+            <div>
+                <span style="width: 100%;">指揮</span>
+                <button class="skill_btn" skill-name="Command" skill-id="42">暫避其鋒</button>
+                <button class="skill_btn" skill-name="Command" skill-id="43">盛氣凜敵</button>
+                <button class="skill_btn" skill-name="Command" skill-id="44">用武通神</button>
+                <button class="skill_btn" skill-name="Command" skill-id="45">撫輯軍民</button>
+                <button class="skill_btn" skill-name="Command" skill-id="46">奇計良謀</button>
+                <button class="skill_btn" skill-name="Command" skill-id="47">鐵騎駆馳</button>
+                <button class="skill_btn" skill-name="Command" skill-id="48">非攻制勝</button>
+                <button class="skill_btn" skill-name="Command" skill-id="49">御敵屏障</button>
+                <button class="skill_btn" skill-name="Command" skill-id="50">整裝待發</button>
+                <button class="skill_btn unstarted" skill-name="Command" skill-id="51" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Command" skill-id="52" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Command" skill-id="53" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Command" skill-id="54" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Command" skill-id="55" disabled>XXX</button>
+            </div>
+
+            <div>
+                <span style="width: 100%;">主動</span>
+                <button class="skill_btn" skill-name="Active" skill-id="56">臥薪嘗膽</button>
+                <button class="skill_btn" skill-name="Active" skill-id="57">橫掃千軍</button>
+                <button class="skill_btn" skill-name="Active" skill-id="58">破陣摧堅</button>
+                <button class="skill_btn" skill-name="Active" skill-id="59">所向披靡</button>
+                <button class="skill_btn" skill-name="Active" skill-id="60">破軍威勝</button>
+                <button class="skill_btn" skill-name="Active" skill-id="61">避實擊虛</button>
+                <button class="skill_btn" skill-name="Active" skill-id="62">奪魂挾魄</button>
+                <button class="skill_btn" skill-name="Active" skill-id="63">杯蛇鬼車</button>
+                <button class="skill_btn" skill-name="Active" skill-id="64">四面楚歌</button>
+                <button class="skill_btn" skill-name="Active" skill-id="65">瞋目橫矛</button>
+                <button class="skill_btn" skill-name="Active" skill-id="66">刮骨療毒</button>
+                <button class="skill_btn" skill-name="Active" skill-id="67">一力拒守</button>
+                <button class="skill_btn" skill-name="Active" skill-id="68">形機軍略</button>
+                <button class="skill_btn" skill-name="Active" skill-id="69">智計</button>
+                <button class="skill_btn" skill-name="Active" skill-id="70">風乘火勢</button>
+                <button class="skill_btn" skill-name="Active" skill-id="71">疾風驟雨</button>
+                <button class="skill_btn" skill-name="Active" skill-id="72">焰逐鳳飛</button>
+                <button class="skill_btn" skill-name="Active" skill-id="73">威謀靡亢</button>
+                <button class="skill_btn" skill-name="Active" skill-id="74">草船借箭</button>
+                <button class="skill_btn" skill-name="Active" skill-id="75">據水斷橋</button>
+                <button class="skill_btn" skill-name="Active" skill-id="76">嬰城自守</button>
+                <button class="skill_btn" skill-name="Active" skill-id="77">擊其惰歸</button>
+                <button class="skill_btn" skill-name="Active" skill-id="78">獨行赴斗</button>
+                <button class="skill_btn" skill-name="Active" skill-id="79">焚輜營壘</button>
+                <button class="skill_btn" skill-name="Active" skill-id="80">火熾原燎</button>
+                <button class="skill_btn" skill-name="Active" skill-id="81">縱兵劫掠</button>
+                <button class="skill_btn" skill-name="Active" skill-id="82">不辱使命</button>
+                <button class="skill_btn" skill-name="Active" skill-id="83">暴斂四方</button>
+                <button class="skill_btn" skill-name="Active" skill-id="84">落鳳</button>
+                <button class="skill_btn" skill-name="Active" skill-id="85">輕勇飛燕</button>
+                <button class="skill_btn" skill-name="Active" skill-id="86">坐守孤城</button>
+                <button class="skill_btn" skill-name="Active" skill-id="87">強攻</button>
+                <button class="skill_btn" skill-name="Active" skill-id="88">唇槍舌戰</button>
+                <button class="skill_btn" skill-name="Active" skill-id="89">魯莽</button>
+                <button class="skill_btn" skill-name="Active" skill-id="90">千里馳援</button>
+                <button class="skill_btn" skill-name="Active" skill-id="91">掣刀斫敵</button>
+                <button class="skill_btn" skill-name="Active" skill-id="92">臨機制勝</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="93" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="94" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="95" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="96" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="97" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="98" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="99" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="100" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Active" skill-id="101" disabled>XXX</button>
+            </div>
+
+            <div>
+                <span style="width: 100%;">突擊</span>
+                <button class="skill_btn" skill-name="Assault" skill-id="102">一騎當千</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="103">鬼神霆威</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="104">百騎劫營</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="105">暴戾無仁</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="106">折衝御侮</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="107">速乘其利</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="108">當鋒摧決</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="109">克敵制勝</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="110">先成其慮</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="111">勇者得前</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="112">彎弓飲羽</button>
+                <button class="skill_btn" skill-name="Assault" skill-id="113">手起刀落</button>
+                <button class="skill_btn unstarted" skill-name="Assault" skill-id="114" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Assault" skill-id="115" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Assault" skill-id="116" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Assault" skill-id="117" disabled>XXX</button>
+                <button class="skill_btn unstarted" skill-name="Assault" skill-id="118" disabled>XXX</button>
+
+            </div>
+        </ul>
+
+        <!-- listing skill btn -->
+        <div class="threebtn">
+            <button class="allSelect" onclick="allSelect()">All Select</button>
+            <button class="allClear" onclick="allClear()">All Clear</button>
+            <button id="button" onclick="htmlTableToExcel('xlsx')">Generate Skill to EXCEL</button>
+        </div>
+    </div>
+<!-- skill list box -->
+
+
+
+
+
+
+
+<script>
+// show/hide general & skill box 
+    var generalMenu = $('.generalbox');
+    var skillMenu = $('.btnbox');
+
+        function general_toggle(){
+            generalMenu.toggle();
+            skillMenu.hide();
+        }
+        function skill_toggle() {
+            skillMenu.toggle();
+            generalMenu.hide();
+        }
+
+        function listClose(){
+            skillMenu.hide();
+            generalMenu.hide();
+        }
+</script>
+
+
+<script>
+
+// select skill 
+$('.skill_btn').click(function(){
+    var inSertid = $(this).attr('skill-id');
+    var inSertName = $(this).text();
+    var inSertCategory = $(this).attr('skill-name');
+
+    $('#inSertlist').append('<tr id="'+ inSertid + '"> <td><button class="delskill" data-id="'+ inSertid + '">X</button></td><td>'+ inSertid + '</td><td>'+ inSertName + '</td><td>'+ inSertCategory + '</td></tr>');
+
+    $(this).attr("disabled", true);
+});
+
+
+// Delete skill 
+$(document).on('click','.delskill',function(){
+    $(this).parent().parent().remove();
+
+    var openskill =  $(this).attr('data-id');
+    $('.skill_btn[skill-id="' + openskill + '"]').attr("disabled", false);
+});
+
+
+// select All skill 
+function allSelect(){
+    var skillBtns = document.querySelectorAll('.skill_btn');
+
+    for (var i = 1; i <= skillBtns.length; i++) {
+        var inSertName = $('.skill_btn[skill-id="' + i + '"]').text();
+        var inSertCategory = $('.skill_btn[skill-id="' + i + '"]').attr('skill-name');
+        
+
+
+        if ( $('.skill_btn[skill-id="' + i + '"]').attr("disabled") == "disabled") {
+            console.log('repeat'+i);
+        } else {
+            $('#inSertlist').append('<tr id="'+ i + '"> <td><button class="delskill" data-id="'+ i + '">X</button></td><td>'+ i + '</td><td>'+ inSertName + '</td><td>'+ inSertCategory + '</td></tr>'); 
+        }
+    }
+
+    $('.skill_btn').attr("disabled", true);
+}
+
+// Clear All skill 
+function allClear(){
+    $('.delskill').parent().parent().remove();
+    $('.skill_btn').attr("disabled", false);
+
+    // find Not executed
+    if ($('.unstarted').attr("disabled", true)){
+        
+    } else {
+        $('.skill_btn').attr("disabled", false);
+    }
+    
+}
+
+</script>
+
+
+<!-- export Excel -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+    <script>
+        function htmlTableToExcel(type){
+            $('.delskill').parent().remove();
+            $('.delrow').remove();
+
+            var data = document.getElementById('inSertlist');
+            var excelFile = XLSX.utils.table_to_book(data, {sheet: "sheet1"});
+            XLSX.write(excelFile, { bookType: type, bookSST: true, type: 'base64' });
+            XLSX.writeFile(excelFile, 'insertdata:HTMLTableToExcel.' + type);
+        }
+    </script>
+<!-- export Excel -->

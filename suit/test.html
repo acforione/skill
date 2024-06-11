@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<style>
+  /*  circle box  */
+   .circlessidebox {
+      display: flex;
+      flex-direction: row;
+      padding: 5px 0;
+   }
+
+   .circlesside {
+      border: 3px solid gray;
+      font-size: -webkit-xxx-large;
+      width: 100%;
+   }
+
+   .circles {
+       margin: auto;
+   }
+
+
+
+
+
+
+.generalbox{
+    min-width: 100px;
+    margin: 5px 10px;
+    width: 100px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.generallist-content {
+    font-size: 4vw;
+    width: 100%;
+    text-align: center;
+}
+
+.generalcss{
+    font-size: 20px;
+}
+
+.dropdown-content{
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown-content {
+    display: block;
+    position: relative;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content option:hover {
+    background-color: #ddd;
+}
+
+.wei{
+    background-color: #6e86a7;
+}
+.wu{
+    background-color: #a35e5f;
+}
+.shu{
+    background-color: #5f9e73;
+}
+.qun{
+    background-color: #aeaeb1;
+}
+</style>
+
+
+
+
+<body>
+    <section>
+   <!-- skill list box 1 -->
+   <div>
+      <div class="circlessidebox">
+         <div class="circlesside">
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+         </div>
+         <div class="circlesside">
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+         </div>
+         <div class="circlesside">
+            <select id="generallist" class="generallist-content"><option class="generalcss" value="">Select general</option></select>
+            <div style="display: flex;"><div class="circles" onclick="openbox('skill')" >skill 1</div></div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+
+
+
+<script>
+        var general_list = [
+          {
+            "名稱": "曹操",
+            "種類": "wei"
+          },
+          {
+            "名稱": "司馬懿",
+            "種類": "wei"
+          },
+          {
+            "名稱": "賈詡",
+            "種類": "wei"
+          },
+          {
+            "名稱": "典韋",
+            "種類": "wei"
+          },
+          {
+            "名稱": "郝昭",
+            "種類": "wei"
+          },
+          {
+            "名稱": "許褚",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張遼",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張郃",
+            "種類": "wei"
+          },
+          {
+            "名稱": "荀攸",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹仁",
+            "種類": "wei"
+          },
+          {
+            "名稱": "程昱",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP荀彧",
+            "種類": "wei"
+          },
+          {
+            "名稱": "徐晃",
+            "種類": "wei"
+          },
+          {
+            "名稱": "夏侯惇",
+            "種類": "wei"
+          },
+          {
+            "名稱": "龐德",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP龐德",
+            "種類": "wei"
+          },
+          {
+            "名稱": "鍾會",
+            "種類": "wei"
+          },
+          {
+            "名稱": "滿寵",
+            "種類": "wei"
+          },
+          {
+            "名稱": "王雙",
+            "種類": "wei"
+          },
+          {
+            "名稱": "王元姬",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹純",
+            "種類": "wei"
+          },
+          {
+            "名稱": "于禁",
+            "種類": "wei"
+          },
+          {
+            "名稱": "樂進",
+            "種類": "wei"
+          },
+          {
+            "名稱": "鄧艾",
+            "種類": "wei"
+          },
+          {
+            "名稱": "夏侯淵",
+            "種類": "wei"
+          },
+          {
+            "名稱": "郭嘉",
+            "種類": "wei"
+          },
+          {
+            "名稱": "張春華",
+            "種類": "wei"
+          },
+          {
+            "名稱": "SP劉曄",
+            "種類": "wei"
+          },
+          {
+            "名稱": "陳群",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹植",
+            "種類": "wei"
+          },
+          {
+            "名稱": "荀彧",
+            "種類": "wei"
+          },
+          {
+            "名稱": "甄姬",
+            "種類": "wei"
+          },
+          {
+            "名稱": "曹丕",
+            "種類": "wei"
+          },
+          {
+            "名稱": "劉備",
+            "種類": "shu"
+          },
+          {
+            "名稱": "關羽",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張飛",
+            "種類": "shu"
+          },
+          {
+            "名稱": "趙雲",
+            "種類": "shu"
+          },
+          {
+            "名稱": "黃忠",
+            "種類": "shu"
+          },
+          {
+            "名稱": "馬超",
+            "種類": "shu"
+          },
+          {
+            "名稱": "諸葛亮",
+            "種類": "shu"
+          },
+          {
+            "名稱": "龐統",
+            "種類": "shu"
+          },
+          {
+            "名稱": "SP諸葛亮",
+            "種類": "shu"
+          },
+
+          {
+            "名稱": "SP關羽",
+            "種類": "shu"
+          },
+          {
+            "名稱": "姜維",
+            "種類": "shu"
+          },
+
+          {
+            "名稱": "關銀屏",
+            "種類": "shu"
+          },
+          {
+            "名稱": "魏延",
+            "種類": "shu"
+          },
+          {
+            "名稱": "法正",
+            "種類": "shu"
+          },
+          {
+            "名稱": "徐庶",
+            "種類": "shu"
+          },
+          {
+            "名稱": "黃月英",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張姬",
+            "種類": "shu"
+          },
+          {
+            "名稱": "關興",
+            "種類": "shu"
+          },
+          {
+            "名稱": "張苞",
+            "種類": "shu"
+          },
+          {
+            "名稱": "馬雲祿",
+            "種類": "shu"
+          },
+          {
+            "名稱": "伊籍",
+            "種類": "shu"
+          },
+          {
+            "名稱": "王平",
+            "種類": "shu"
+          },
+          {
+            "名稱": "嚴顏",
+            "種類": "shu"
+          },
+          {
+            "名稱": "陳到",
+            "種類": "shu"
+          },
+          {
+            "名稱": "蔣琬",
+            "種類": "shu"
+          },
+          {
+            "名稱": "孫權",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫堅",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫策",
+            "種類": "wu"
+          },
+          {
+            "名稱": "孫尚香",
+            "種類": "wu"
+          },
+          {
+            "名稱": "周瑜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "呂蒙",
+            "種類": "wu"
+          },
+          {
+            "名稱": "魯肅",
+            "種類": "wu"
+          },
+          {
+            "名稱": "陸遜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "甘寧",
+            "種類": "wu"
+          },
+          {
+            "名稱": "太史慈",
+            "種類": "wu"
+          },
+          {
+            "名稱": "周泰",
+            "種類": "wu"
+          },
+          {
+            "名稱": "凌統",
+            "種類": "wu"
+          },
+          {
+            "名稱": "黃蓋",
+            "種類": "wu"
+          },
+          {
+            "名稱": "程普",
+            "種類": "wu"
+          },
+          {
+            "名稱": "陸抗",
+            "種類": "wu"
+          },
+          {
+            "名稱": "諸葛格",
+            "種類": "wu"
+          },
+          {
+            "名稱": "馬忠",
+            "種類": "wu"
+          },
+          {
+            "名稱": "SP周瑜",
+            "種類": "wu"
+          },
+          {
+            "名稱": "SP呂蒙",
+            "種類": "wu"
+          },
+          {
+            "名稱": "張昭",
+            "種類": "wu"
+          },
+          {
+            "名稱": "張紘",
+            "種類": "wu"
+          },
+          {
+            "名稱": "大喬",
+            "種類": "wu"
+          },
+          {
+            "名稱": "小喬",
+            "種類": "wu"
+          },
+          {
+            "名稱": "董卓",
+            "種類": "qun"
+          },
+          {
+            "名稱": "呂布",
+            "種類": "qun"
+          },
+          {
+            "名稱": "陳宮",
+            "種類": "qun"
+          },
+          {
+            "名稱": "高順",
+            "種類": "qun"
+          },
+          {
+            "名稱": "貂蟬",
+            "種類": "qun"
+          },
+          {
+            "名稱": "呂玲綺",
+            "種類": "qun"
+          },
+          {
+            "名稱": "華雄",
+            "種類": "qun"
+          },
+          {
+            "名稱": "李儒",
+            "種類": "qun"
+          },
+          {
+            "名稱": "袁紹",
+            "種類": "qun"
+          },
+          {
+            "名稱": "許攸",
+            "種類": "qun"
+          },
+          {
+            "名稱": "沮授",
+            "種類": "qun"
+          },
+          {
+            "名稱": "田豐",
+            "種類": "qun"
+          },
+          {
+            "名稱": "顏良",
+            "種類": "qun"
+          },
+          {
+            "名稱": "文醜",
+            "種類": "qun"
+          },
+          {
+            "名稱": "高覽",
+            "種類": "qun"
+          },
+          {
+            "名稱": "麴義",
+            "種類": "qun"
+          },
+          {
+            "名稱": "袁術",
+            "種類": "qun"
+          },
+          {
+            "名稱": "張角",
+            "種類": "qun"
+          },
+          {
+            "名稱": "于吉",
+            "種類": "qun"
+          },
+          {
+            "名稱": "左慈",
+            "種類": "qun"
+          },
+          {
+            "名稱": "華佗",
+            "種類": "qun"
+          },
+          {
+            "名稱": "孟獲",
+            "種類": "qun"
+          },
+          {
+            "名稱": "祝融夫人",
+            "種類": "qun"
+          },
+          {
+            "名稱": "兀突骨",
+            "種類": "qun"
+          },
+          {
+            "名稱": "木鹿大王",
+            "種類": "qun"
+          },
+          {
+            "名稱": "朵思大王",
+            "種類": "qun"
+          },
+          {
+            "名稱": "公孫瓚",
+            "種類": "qun"
+          },
+          {
+            "名稱": "張讓",
+            "種類": "qun"
+          },
+          {
+            "名稱": "馬騰",
+            "種類": "qun"
+          },
+          {
+            "名稱": "董白",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP袁紹",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP朱儁",
+            "種類": "qun"
+          },
+          {
+            "名稱": "蔡文姬",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP張梁",
+            "種類": "qun"
+          },
+          {
+            "名稱": "SP張寶",
+            "種類": "qun"
+          },
+          {
+            "名稱": "司馬徽",
+            "種類": "qun"
+          },
+          {
+            "名稱": "蔡邕",
+            "種類": "qun"
+          }
+        ];
+
+
+
+        general_list.forEach(function(insertgeneral) {
+            // Find the generallist-content elements
+            var insectpostion = $('.generallist-content');
+
+            //Create a new option element
+            var generals = document.createElement('option');
+            generals.textContent = insertgeneral.名稱;
+            generals.classList.add('generalbox','generalcss', insertgeneral.種類);
+            
+            //Insert the option as a child
+            insectpostion.append(generals);
+        });
+
+
+        // Keep track of the selected generals
+        var selectedGenerals = [];
+        
+        // Function to handle selection of generals
+        $('.generallist-content').on('change', function() {
+            var selectedGeneral = $(this).val();
+            
+            // Add the selected general to the list of selected generals
+            if (selectedGeneral !== "") {
+                selectedGenerals.push(selectedGeneral);
+            }
+            
+            // Disable all the selected generals in the other dropdown lists
+            $('.generallist-content option').each(function() {
+                if (selectedGenerals.includes($(this).val())) {
+                    $(this).prop('disabled', true);
+                } else {
+                    $(this).prop('disabled', false);
+                }
+            });
+        });
+</script>
+
+  
+
+
+</body>
+</html>
