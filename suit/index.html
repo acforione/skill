@@ -86,9 +86,44 @@
 
 
 
+.wei{
+    background-color: #366ebc;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.wu{
+    background-color: #ce2c2f;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.shu{
+    background-color: #29ad3f;
+    color: #fbebeb;
+    border-radius: 15px;
+}
+.qun{
+    background-color: #c57446;
+    color: #fbebeb;
+    border-radius: 15px;
+}
 
 
-
+.wei:disabled {
+    background-color: #1318ca;
+    color: #ffffff00;
+}
+.wu:disabled {
+    background-color: #ff0000;
+    color: #ffffff00;
+}
+.shu:disabled {
+    background-color: #00ff2b;
+    color: #ffffff00;
+}
+.qun:disabled {
+    background-color: #ea5c0b;
+    color: #ffffff00;
+}
 
 
 
@@ -1167,7 +1202,7 @@
       // 加入元素
       var rolebox = document.createElement('button');
       rolebox.textContent = insertlist.名稱;
-      rolebox.classList.add('rolebtnbox','btnboxcss','click');
+      rolebox.classList.add('rolebtnbox','btnboxcss','click',insertlist.種類);
 
       //insert to be Child
       insectposition.appendChild(rolebox);
