@@ -10,20 +10,37 @@
     }
 
     .homebtn {
-        width: 90%;
-        height: 100px;
+        width: 15%;
+        height: 40px;
         color: white;
         background: #23b5f6;
         border: 1px #2c8797 solid;
         border-radius: 10px;
-        font-size: 50px;
+        font-size: 1.5vw;
         margin: 20px;
-
     }
 
     .homebtn a{
         text-decoration: none;
         color: white;
+    }
+
+
+    @media only screen and (max-width: 1200px) {
+        .homebtn {
+            width: 65%;
+            height: 45px;
+            font-size: 2.5vw;
+        }
+    }
+
+
+    @media only screen and (max-width: 900px) {
+        .homebtn {
+            width: 80%;
+            height: 50px;
+            font-size: 4.5vw;
+        }
     }
 </style>
 
