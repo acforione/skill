@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+	<link rel="stylesheet" href="http://localhost/basic/web/css/testingpage.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<style>
+    .header {
+        background: black;
+        /*color: white;*/
+    }
+    .top-header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 30px;
+        color: #fff;
+    }
+    .headerbtn button{
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 768px) {
+        .top-header {
+            font-size: 6vw;
+            color: #F00056;
+        }
+        .headerbtn button{
+            font-size: 4vw;
+        }
+    }
+
+
+	.memo{
+		width: 100%; margin: auto; min-width: 480px; max-width: 600px;
+	}
+	.memocontent {
+	    display: flex; flex-direction: column; text-align: center; 
+	}
+	.work{
+		display: none;
+	}
+	.videobox{
+		display: flex; flex-direction: column; 
+	}
+	.novelbox{
+		display: flex; flex-direction: column; 
+	}
+</style>
+
+
+
+<body>
+<section id="header" class="header">
+    <div class="top-header">
+        <div class="headerbtn" style="width: 20%;">
+            <button><a href="/skill/code/home.html" style="text-decoration:none; color: #000000;">上一頁</a></button>
+        </div>
+        <div class="headerbtn" style="width: 60%;">
+            <span>memo</span>
+        </div>
+        <div class="headerbtn" style="width: 20%;">
+            <button><a href="/skill/index.html" style="text-decoration:none; color: #000000;">HOME</a></button>
+        </div>
+    </div>
+</section>
+	<div class="site-Testpage">
+		<div class="memo" id="memo">
+			<div class="memocontent">
+				<h1></h1>
+				<button id="save-button">Save text as file</button>
+				<textarea id="canvas-textarea" name="canvas-textarea" rows="50" cols="50"></textarea>
+			</div>
+		</div>
+		
+
+		<div class="work" id="work">
+			<textarea id="try" name="try" rows="1" cols="50">try to input</textarea>
+			<div class="box" id="box">
+				<div class="videobox">
+					<input type="file" id="myInput"/>
+					<video width="500" height="230" controls autoplay id="myVideo"></video>
+				</div>
+				<div>
+					<button onclick="size1()">480(Num1)</button>
+					<button onclick="size2()">720(Num2)</button>
+					<button onclick="size3()">1024(Num3)</button>
+					<br>
+				</div>
+			</div>		
+			<br><br>
+			<button onclick="hideyoutubebox()">YTbox</button>
+			<div id="YTbox" style="display: none;">
+					<input size="40" type="text" id="youtubelink" value="https://www.youtube.com/watch?v=hpMAc2m6d3c">
+					<button onclick="inputyoutubelink()">Enter</button>
+					
+					<br>
+					<button onclick="youtubelink1()">2021</button>
+					<button onclick="youtubelink2()">2022</button>
+					<button onclick="youtubelink3()">2023</button>
+					<br>
+					<iframe id="youtubebox" width="500" height="230" src=""+"autoplay=1"></iframe>
+			</div>
+			<br><br>
+			<button onclick="hidenovelbox()">NLbox</button>
+			<div id="NLbox" style="display: none;">
+					<input size="40" type="text" id="novellink" value="https://m.bqg9527.com/zh_hant/book/362413/">
+					<button onclick="inputnovel()">Enter</button>
+					
+					<br>
+					<button onclick="novellink1()">筆趣閣</button>
+					<button onclick="novellink2()">筆趣閣</button>
+					<br>
+					<iframe id="novelbox" style="max-width:800px; width: 100%; min-height: 800px;" src=""></iframe>
+			</div>	
+		</div>
+	</div>
+
+
+	<br><br><br>
+
+
+	<script type="text/javascript">
+	// save text to file
+		function saveFileAs() {
+			if (promptFilename = prompt("Save file as", "")) {
+				var textBlob = new Blob([document.getElementById("canvas-textarea").value], {type:'text/plain'});
+				var downloadLink = document.createElement("a");
+				downloadLink.download = promptFilename;
+				downloadLink.innerHTML = "Download File";
+				downloadLink.href = window.URL.createObjectURL(textBlob);
+				downloadLink.click();
+		    delete downloadLink;
+		    delete textBlob;
+			}
+		}
+
+		document.getElementById("save-button").onclick = saveFileAs;
+	</script>
+
+	<script>
+	//input video 
+		var input = document.getElementById('myInput'), 
+			video = document.getElementById('myVideo');
+	        input.onchange = function () {
+				var file = this.files[0];
+	            var url = URL.createObjectURL(file);
+	            video.innerHTML = '<source src="' + url + '" type="video/mp4">';
+	        }
+
+	//Show or hide the youtubebox
+		function inputyoutubelink() {  
+			var x = document.getElementById("youtubelink").value;
+		  	var y = document.getElementById("youtubebox"); 
+				document.body.style.backgroundColor = '#383231';
+			y.setAttribute('src', x);
+			document.getElementById("youtubebox").style.display = "block";
+		}
+
+		function hideyoutubebox() {
+		  	var x = document.getElementById("YTbox");
+			  	document.body.style.backgroundColor = '#383231';
+		  	if (x.style.display === "none") {
+				x.style.display = "block";
+		  	} 
+		  	else {
+				x.style.display = "none";
+			// document.body.style.backgroundColor = 'white';
+				document.body.style.backgroundColor = '#383231';
+		  	}
+		}
+
+		function youtubelink1(){
+			document.getElementById("youtubebox").setAttribute('src', "https://www.youtube.com/embed/hpMAc2m6d3c");
+			document.body.style.backgroundColor = '#383231';
+		}
+
+		function youtubelink2(){
+			document.getElementById("youtubebox").setAttribute('src', "https://www.youtube.com/embed/7QjMoREm5Ms");
+			document.body.style.backgroundColor = '#383231';
+		}
+
+		function youtubelink3(){
+			document.getElementById("youtubebox").setAttribute('src', "https://www.youtube.com/embed/STtE6RIO7io");
+			document.body.style.backgroundColor = '#383231';
+		}
+
+
+	//Show or hide the novel
+		function inputnovel() {  
+		  	var x = document.getElementById("novellink").value;
+		  	var y = document.getElementById("novelbox"); 
+		      	document.body.style.backgroundColor = '#383231';
+		  	y.setAttribute('src', x);
+		}
+
+		function hidenovelbox() {
+		  	var x = document.getElementById("NLbox");
+			  	document.body.style.backgroundColor = '#383231';
+		  	if (x.style.display === "none") {
+				x.style.display = "block";
+		  	} 
+		  	else {
+				x.style.display = "none";
+			// document.body.style.backgroundColor = 'white';
+				document.body.style.backgroundColor = '#383231';
+		  	}
+		}
+
+		function novellink1(){
+			document.getElementById("novelbox").setAttribute('src', "https://m.bqg9527.com/zh_hant/book/362413/");
+			document.body.style.backgroundColor = '#383231';
+		}
+
+		function novellink2(){
+			document.getElementById("novelbox").setAttribute('src', "https://m.bqg9527.com/zh_hant/book/362919/");
+			document.body.style.backgroundColor = '#383231';
+		}
+
+
+	//Set size
+		function size1(){
+			var size1= document.getElementById('myVideo');
+			size1.style.width='480px';
+			size1.style.height='272px';
+		}
+		function size2(){
+			var size2 = document.getElementById('myVideo');
+			size2.style.width = '720px';
+			size2.style.height= '480px';
+		}
+		function size3(){
+			var size3 = document.getElementById('myVideo');
+			size3.style.width = '1024px';
+			size3.style.height= '768px';
+		}
+	</script>
+
+	<script>
+	//keyCode function (0 to play/pause)
+		document.addEventListener("keydown",keyopen);
+		function keyopen(event){
+		  if (event.keyCode === 96) {
+			  var x = document.getElementById("myVideo");
+			  var y = document.getElementById("work");
+			  var z = document.getElementById("memo");
+
+			  if (x.style.display === "block") {
+			  	y.style.display = "none";
+				x.style.display = "none";
+				z.style.display = "block";
+				document.body.style.backgroundColor = '#FFF';
+				x.pause();
+			  } 
+			  else {
+			  	y.style.display = "block";
+				x.style.display = "block";
+				z.style.display = "none";
+				document.body.style.backgroundColor = '#383231';
+				x.play();
+			  }
+		  }
+		  
+		  if (event.keyCode === 97) {
+			var size1= document.getElementById('myVideo');
+			size1.style.width='480px';
+			size1.style.height='272px';
+		  }	  
+
+		  if (event.keyCode === 98) {
+			var size2 = document.getElementById('myVideo');
+			size2.style.width = '720px';
+			size2.style.height= '480px';
+		  }	
+
+		  if (event.keyCode === 99) {
+			var size3= document.getElementById('myVideo');
+			size3.style.width = '1024px';
+			size3.style.height= '768px';
+		  }		   
+		}	
+	</script>
+
+</body>
+</html>

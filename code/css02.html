@@ -1,0 +1,213 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+    .header {
+        background: black;
+        /*color: white;*/
+    }
+    .top-header {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 30px;
+        color: #fff;
+    }
+    .headerbtn button{
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 768px) {
+        .top-header {
+            font-size: 6vw;
+            color: #F00056;
+        }
+        .headerbtn button{
+            font-size: 4vw;
+        }
+    }
+
+
+
+
+.card-box, .card, .card-header, .card-body {
+    display: flex;
+}
+
+.card-box {
+    width: 90%;
+    margin: auto;
+}
+
+.card-body{
+    flex-direction: column;  
+}
+
+.card {
+    width: 20%;
+    flex-direction: column;
+}
+.title {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border: 1px solid rgba(0, 0, 0, .125);
+    white-space: nowrap;
+    overflow-x: auto;
+    width: -webkit-fill-available;
+}
+
+.item {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, .125);
+    width: -webkit-fill-available;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none; /* 適用於Firefox */
+    -ms-overflow-style: none; /* 適用於IE和Edge */
+}
+.item::-webkit-scrollbar {
+    display: none; /* 適用於Chrome、Safari和Opera */
+}
+
+.item:hover{
+    background-color: #41f5ff82;
+}
+</style>
+<section id="header" class="header">
+    <div class="top-header">
+        <div class="headerbtn" style="width: 20%;">
+            <button><a href="/skill/code/home.html" style="text-decoration:none; color: #000000;">上一頁</a></button>
+        </div>
+        <div class="headerbtn" style="width: 60%;">
+            <span>Reference</span>
+        </div>
+        <div class="headerbtn" style="width: 20%;">
+            <button><a href="/skill/index.html" style="text-decoration:none; color: #000000;">HOME</a></button>
+        </div>
+    </div>
+</section>
+
+<!-- ----------------------------------------start-------------------------------------------------- -->
+    <div class="card-box">
+        
+
+        <div class="card">
+            <div class="card-header">
+                <div class="title">CSS</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="title">HTML</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="title">Java Script</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="title">Jquery</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="title">Other</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+                <div class="item linkpath">1111</div>
+            </div>
+        </div>
+
+<!--         <div class="card">
+            <div class="card-header">
+                <div class="title">other</div>
+            </div>
+            <div class="card-body">
+                <div class="item linkpathtitle">各式各樣生成CSS</div>
+                <div class="item linkpath">https://www.cssportal.com/css-generators.php</div>
+            </div>
+        </div> -->
+
+        </div>
+    </div>
+<!-- ----------------------------------------End---------------------------------------------------- -->
+        <!-- 跳轉 function-->
+            <script type="text/javascript">
+                // 獲取跳轉path
+                const linkpath = document.querySelectorAll('.linkpathtitle, .linkpath');
+
+                // 為每個可點擊文字添加點擊事件處理程式
+                linkpath.forEach(jumpto => {
+                  jumpto.addEventListener('click', () => {
+                    // 獲取文字對應的網址
+                    const url = jumpto.classList.contains('linkpathtitle')
+                              ? jumpto.nextElementSibling.textContent
+                              : jumpto.textContent;
+
+                    // 跳轉到對應的網址
+                    window.open(url, '_blank');
+                  });
+                });
+            </script>
+        <!-- 跳轉 function-->
+</html>
