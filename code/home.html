@@ -1,3 +1,29 @@
+<!-- 複製 function -->
+<div style="display: flex; justify-content: flex-end; margin: 25px 0px;">
+    <img onclick="copyText()" style="width: 100px;" alt="HKT" src="https://www.netvigator.com/assets/images/logo/hkt-simple.svg">
+    <img onclick="copyText2()" style="width: 100px;" alt="HKT" src="https://www.netvigator.com/assets/images/logo/pccw-chi.svg">
+</div>
+<textarea id="hidden-text" style="display: none;">hkthomemarcom@gmail.com</textarea>
+<textarea id="hidden-text2" style="display: none;">marcom2021</textarea>
+<script>
+    function copyText() {
+        var hiddenText = document.getElementById("hidden-text");
+        hiddenText.select();
+        hiddenText.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(hiddenText.value);
+    }
+    function copyText2() {
+        var hiddenText = document.getElementById("hidden-text2");
+        hiddenText.select();
+        hiddenText.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(hiddenText.value);
+    }
+</script>
+
+
+
+
+
 <style>
     body {
         background-color: #5f4d4d4d;
@@ -45,7 +71,7 @@
 </style>
 
 <section id="home">
-    <div class="home" style="margin-top: 10rem;">
+    <div class="home">
         <button class="homebtn"><a href="/skill/index.html">主頁</a></button>
         <button class="homebtn"><a href="/skill/code/css01.html">CSS 1</a></button>
         <button class="homebtn"><a href="/skill/code/css02.html">CSS 2</a></button>
